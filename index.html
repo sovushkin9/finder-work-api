@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>API Docs</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">  
+      
+    <!-- Theme CSS -->
+		<link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+		<link rel="stylesheet" href="assets/css/agate.css"> 
+    
+</head> 
+
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_logo icon"></span>
+                            <span class="text-highlight">Api</span><span class="text-bold">Docs</span>
+                        </a>
+                    </h1>
+                    
+                </div><!--//branding-->
+                
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">API</li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="authentification-section" class="doc-section">
+                                <h2 class="section-title">Authentification</h2>
+                                <div id="register-user"  class="section-block">
+																		<h3 class="block-title">Register User</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/register</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list">
+																			<li><strong>email</strong>: employee@example.com</li>
+																			<li><strong>password</strong>: password</li>
+																			<li><strong>role</strong>: employee</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "Thanks for signing up! Please check your email to complete your registration."
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="verify-user"  class="section-block">
+																		<h3 class="block-title">Verify User</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/user/verify/{verification_code}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>verification_code</strong>: YtBOmwDSyDjvzOns6vSuEVHO4Eoshq</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully verified your email address."
+}
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="login-user"  class="section-block">
+																		<h3 class="block-title">Login User</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/login</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list">
+																			<li><strong>email</strong>: employer@example.com</li>
+																			<li><strong>password</strong>: password</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"data": {
+		"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"
+	}
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="logout-user"  class="section-block">
+																		<h3 class="block-title">Logout User</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/logout</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																			<li><strong>password</strong>: password</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully logged out."
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="password-section" class="doc-section">
+                                <h2 class="section-title">Password Change</h2>
+                                <div id="token-for-password-reset"  class="section-block">
+																		<h3 class="block-title">Create token for password reset</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/password/create</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list">
+																			<li><strong>email</strong>: employee@example.com</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "We have e-mailed your password reset link!"
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="find-password-reset-token"  class="section-block">
+																		<h3 class="block-title">Find password reset token</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/password/find/{token}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>token</strong>: Rhp0HaFXYliU2sEW3HEnnELR7GedYZIFPskoXFzO3Mc8W4WfbdGPBfpwq9zp</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"id": 1,
+	"email": "employee@gmail.com",
+	"token": "CTiXbxmpt6jmjIuTiFGrnS0YIZV2YdaU7C8IQxpHcr0uF2cV5YT1maaOfsRl",
+	"created_at": "2019-11-09 22:02:24",
+	"updated_at": "2019-11-09 22:02:24"
+}
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="reset-password"  class="section-block">
+																		<h3 class="block-title">Reset password</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/password/reset</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list">
+																			<li><strong>email</strong>: employee@example.com</li>
+																			<li><strong>password</strong>: password</li>
+																			<li><strong>password_confirmation</strong>: password</li>
+																			<li><strong>token</strong>: CTiXbxmpt6jmjIuTiFGrnS0YIZV2YdaU7C8IQxpHcr0uF2cV5YT1maaOfsRl</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"id": 2,
+	"email": "employee@gmail.com",
+	"email_verified_at": "2019-11-01 22:37:12",
+	"is_verified": 1,
+	"status": "1",
+	"role": "employee",
+	"created_at": "2019-11-01 20:36:37",
+	"updated_at": "2019-11-09 22:04:32"
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="employer-profile-section" class="doc-section">
+                                <h2 class="section-title">Employer's Profile</h2>
+                                <div id="create-employer-profile"  class="section-block">
+																		<h3 class="block-title">Create Employer's Profile</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/auth/employer/createProfile</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>title</strong>: Employer's title</li>
+																			<li><strong>image</strong>: file.jpeg</li>
+																			<li><strong>founded</strong>: 2019</li>
+																			<li><strong>hr</strong>: Pekulin Maxim</li>
+																			<li><strong>mobile_phone</strong>: +380958888888</li>
+																			<li><strong>location</strong>: Kherson, Ukraine</li>
+																			<li><strong>num_of_employees</strong>: 13</li>
+																			<li><strong>description</strong>: Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</li>
+																			<li><strong>website</strong>: https://www.finder.work</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully created your Employer's profile."
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-employer-profile"  class="section-block">
+																		<h3 class="block-title">Show Employer's Profile</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/employer/showProfile/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"employerProfile": {
+		"id": 1,
+		"user_id": 1,
+		"title": "PizdataStudio",
+		"image": "1572373366.jpg",
+		"founded": "2019",
+		"hr": "Pekulin Maxim",
+		"mobile_phone": "+380958888888",
+		"location": "Kherson, Ukraine",
+		"num_of_employees": 19,
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"website": "https://www.finder.work",
+		"created_at": "2019-10-29 18:22:47",
+		"updated_at": "2019-10-29 18:22:47"
+	}
+}
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="update-employer-profile"  class="section-block">
+																		<h3 class="block-title">Update Employer's Profile</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/employer/updateProfile/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>title</strong>: title</li>
+																			<li><strong>image</strong>: file.jpeg</li>
+																			<li><strong>founded</strong>: 2019</li>
+																			<li><strong>hr</strong>: Pekulin Maxim</li>
+																			<li><strong>mobile_phone</strong>: +380958888888</li>
+																			<li><strong>location</strong>: Kherson, Ukraine</li>
+																			<li><strong>num_of_employees</strong>: 13</li>
+																			<li><strong>description</strong>: Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</li>
+																			<li><strong>website</strong>: https://www.finder.work</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully updated your Employer's profile."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="delete-employer-profile"  class="section-block">
+																		<h3 class="block-title">Delete Employer's Profile</h3>
+																		<h4><span class="badge badge-danger">DELETE</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/employer/destroyProfile/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully deleted your Employer's profile."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-employer-profile-avatar"  class="section-block">
+																		<h3 class="block-title">Get Employer's Profile Avatar</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/employer/avatar/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">company_photo.jpeg
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="employee-profile-section" class="doc-section">
+                                <h2 class="section-title">Employee's Profile</h2>
+                                <div id="create-employee-profile"  class="section-block">
+																		<h3 class="block-title">Create Employee's Profile</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/employee/createProfile</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>title</strong>: Tesla. Inc</li>
+																			<li><strong>avatar</strong>: file.jpeg</li>
+																			<li><strong>name</strong>: Maxim</li>
+																			<li><strong>surname</strong>: Pekulin</li>
+																			<li><strong>location</strong>: Kherson, Ukraine</li>
+																			<li><strong>gender</strong>: 1</li>
+																			<li><strong>year_of_birth</strong>: 1980</li>
+																			<li><strong>expected_salary</strong>: 50</li>
+																			<li><strong>mobile_phone</strong>: +380958888888</li>
+																			<li><strong>description</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully created your Employee's profile."
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-employee-profile"  class="section-block">
+																		<h3 class="block-title">Show Employee's Profile</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/employee/showProfile/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"employeeProfile": {
+		"id": 1,
+		"user_id": 1,
+		"avatar": "1573561367.png",
+		"title": "Tesla. Inc",
+		"name": "Maxim",
+		"surname": "Pekulin",
+		"location": "Kherson, Ukraine",
+		"gender": 1,
+		"year_of_birth": "1980",
+		"expected_salary": 50,
+		"mobile_phone": "+380959999999",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"created_at": "2019-11-12 12:22:47",
+		"updated_at": "2019-11-12 12:22:47"
+	}
+}
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="update-employee-profile"  class="section-block">
+																		<h3 class="block-title">Update Employee's Profile</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/employee/updateProfile/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>title</strong>: Tesla. Inc</li>
+																			<li><strong>avatar</strong>: file.jpeg</li>
+																			<li><strong>name</strong>: Maxim</li>
+																			<li><strong>surname</strong>: Pekulin</li>
+																			<li><strong>location</strong>: Kherson, Ukraine</li>
+																			<li><strong>gender</strong>: 1</li>
+																			<li><strong>year_of_birth</strong>: 1980</li>
+																			<li><strong>expected_salary</strong>: 50</li>
+																			<li><strong>mobile_phone</strong>: +380958888888</li>
+																			<li><strong>description</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully updated your Employee's profile."
+}	
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="delete-employee-profile"  class="section-block">
+																		<h3 class="block-title">Delete Employee's Profile</h3>
+																		<h4><span class="badge badge-danger">DELETE</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/employee/destroyProfile/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully deleted your Employee's profile."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-employee-profile-avatar"  class="section-block">
+																		<h3 class="block-title">Get Employee's Profile Avatar</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/employee/avatar/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">employee_photo12112019.jpeg
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="admin-competencies-section" class="doc-section">
+                                <h2 class="section-title">Admin's Competencies</h2>
+                                <div id="create-competency"  class="section-block">
+																		<h3 class="block-title">Create Competency by Admin</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/admin/createCompetency</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>name</strong>: Itaque enim quasi distinctio officiis.</li>
+																			<li><strong>description</strong>: Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully created Competency."
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-competency"  class="section-block">
+																		<h3 class="block-title">Show Competency for Admin</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/admin/showCompetency/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"competency": {
+		"id": 1,
+		"name": "Itaque enim quasi distinctio officiis.",
+		"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+		"created_at": "2019-11-11 20:30:53",
+		"updated_at": "2019-11-11 20:30:53",
+		"approved": 1,
+		"author": "Admin of finder.work"
+	}
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-competencies"  class="section-block">
+																		<h3 class="block-title">Show All Competencies for Admin</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/admin/showCompetencies</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"competencies": [
+		{
+			"id": 1,
+			"name": "Itaque enim quasi distinctio officiis.",
+			"description": "Nulla enim excepturi tempora eligendi non et provident. Asperiores cupiditate consequatur repudiandae sed voluptatum laudantium enim. Tempora maiores vitae doloremque occaecati explicabo qui. Et laboriosam impedit saepe assumenda suscipit illo ut perspiciatis.",
+			"created_at": "2019-11-01 20:22:54",
+			"updated_at": "2019-11-01 20:22:54",
+			"approved": 1,
+			"author": "Admin of finder.work"
+		},
+		{
+			"id": 2,
+			"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"created_at": "2019-11-01 20:22:54",
+			"updated_at": "2019-11-01 20:22:54",
+			"approved": 1,
+			"author": "Admin of finder.work"
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="update-competency"  class="section-block">
+																		<h3 class="block-title">Update Competency by Admin</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/admin/updateCompetency/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>name</strong>: Itaque enim quasi distinctio officrferiis.</li>
+																			<li><strong>description</strong>: Adipisci veritatis voluptatem aspefrfnatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.</li>
+																			<li><strong>approved</strong>: 1</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully updated Competency."
+}	
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="delete-competency"  class="section-block">
+																		<h3 class="block-title">Delete Competency by Admin</h3>
+																		<h4><span class="badge badge-danger">DELETE</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/admin/destroyCompetency/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully deleted Competency."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="common-get-competencies-section" class="doc-section">
+                                <h2 class="section-title">Get Competencies by Employee or Employer</h2>
+																<div  class="section-block">
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/getCompetencies</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"competencies": [
+		{
+			"id": 1,
+			"name": "Itaque enim quasi distinctio officiis.",
+			"description": "Nulla enim excepturi tempora eligendi non et provident. Asperiores cupiditate consequatur repudiandae sed voluptatum laudantium enim. Tempora maiores vitae doloremque occaecati explicabo qui. Et laboriosam impedit saepe assumenda suscipit illo ut perspiciatis.",
+			"created_at": "2019-11-01 20:22:54",
+			"updated_at": "2019-11-01 20:22:54",
+			"approved": 1,
+			"author": "Admin of finder.work"
+		},
+		{
+			"id": 2,
+			"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"created_at": "2019-11-01 20:22:54",
+			"updated_at": "2019-11-01 20:22:54",
+			"approved": 1,
+			"author": "Admin of finder.work"
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+                            </section><!--//doc-section-->
+														<section id="employer-suggest-competency-section" class="doc-section">
+                                <h2 class="section-title">Suggest Competency by Employer</h2>
+																<div  class="section-block">
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/employer/proposeCompetency</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>name</strong>: New Competency</li>
+																			<li><strong>description</strong>: Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully added Your own Competency."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+                            </section><!--//doc-section-->
+														<section id="admin-competencies-application-section" class="doc-section">
+                                <h2 class="section-title">Admin's Approve Employee Competencies</h2>
+																<div id="show-employee-competencies-by-type"  class="section-block">
+																		<h3 class="block-title">Show Employees Competencies For Approve By Status</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/showEmployeesCompetencies/{status}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>status</strong>: 0 {default option: 0, possible options: 0, 1, -1}</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"CompetenciesByStatus": [
+		{
+			"id": 1,
+			"user_id": 3,
+			"avatar": "1573582357.jpg",
+			"title": "Tesla. Inc",
+			"name": "Maxim",
+			"surname": "Pekulin",
+			"location": "Kherson, Ukraine",
+			"gender": 1,
+			"year_of_birth": "1980",
+			"expected_salary": 50,
+			"mobile_phone": "+380959999999",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+			"created_at": "2019-11-12 18:12:38",
+			"updated_at": "2019-11-12 18:12:38",
+			"competencies": [
+				{
+					"id": 9,
+					"name": "Assumenda aspernatur velit itaque recusandae.",
+					"description": "Voluptate temporibus ipsum voluptas odit consequatur ex sit rerum. Cumque sint maxime illum recusandae nulla. Quo tempore soluta et veritatis ut rerum. Eum fuga veniam excepturi soluta cupiditate repellendus adipisci.",
+					"created_at": "2019-11-12 17:20:17",
+					"updated_at": "2019-11-12 17:20:17",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 1,
+						"competency_id": 9,
+						"is_verified": 0,
+						"file": "1573582587.doc"
+					}
+				}
+			]
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-employee-competencies-by-id" class="section-block">
+																		<h3 class="block-title">Show Employee Competencies For Approve By user_Id</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/admin/showEmployeeCompetencies/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 3</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"allCompetencies": {
+		"id": 1,
+		"user_id": 3,
+		"avatar": "1573582357.jpg",
+		"title": "Tesla. Inc",
+		"name": "Maxim",
+		"surname": "Pekulin",
+		"location": "Kherson, Ukraine",
+		"gender": 1,
+		"year_of_birth": "1980",
+		"expected_salary": 50,
+		"mobile_phone": "+380959999999",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"created_at": "2019-11-12 18:12:38",
+		"updated_at": "2019-11-12 18:12:38",
+		"competencies": [
+			{
+				"id": 15,
+				"name": "Ab ut eos aliquam voluptates commodi.",
+				"description": "Fugit non eum dolorum quidem impedit aut nam. Quaerat similique perspiciatis eum ex voluptatum et et. Corrupti saepe magni omnis fugit.",
+				"created_at": "2019-11-12 17:20:17",
+				"updated_at": "2019-11-12 17:20:17",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"employee_profile_id": 1,
+					"competency_id": 15,
+					"is_verified": -1,
+					"file": "1573582381.doc"
+				}
+			},
+			{
+				"id": 9,
+				"name": "Assumenda aspernatur velit itaque recusandae.",
+				"description": "Voluptate temporibus ipsum voluptas odit consequatur ex sit rerum. Cumque sint maxime illum recusandae nulla. Quo tempore soluta et veritatis ut rerum. Eum fuga veniam excepturi soluta cupiditate repellendus adipisci.",
+				"created_at": "2019-11-12 17:20:17",
+				"updated_at": "2019-11-12 17:20:17",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"employee_profile_id": 1,
+					"competency_id": 9,
+					"is_verified": 0,
+					"file": "1573582587.doc"
+				}
+			}
+		]
+	}
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="approve-employee-competency"  class="section-block">
+																		<h3 class="block-title">Approve Employee Competency By Admin</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/auth/admin/approveEmployeeCompetency/{competency_id}/employee/{employee_id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>competency_id</strong>: 15</li>
+																			<li><strong>employee_id</strong>: 3</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>status</strong>: 1 {possible options: 0, 1, -1}</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"info": "Сompetency status successfully changed"
+}</code></pre>
+																</div><!--//code-block-->
+																</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="admin-proposed-competencies-section" class="doc-section">
+                                <h2 class="section-title">Admin's Approve Employer's Proposed Competencies</h2>
+																<div id="show-proposed-competencies"  class="section-block">
+																		<h3 class="block-title">Show All Proposed Competencies For Admin</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/admin/showProposedCompetencies</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"competencies": [
+		{
+			"id": 52,
+			"name": "New Competency",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores",
+			"created_at": "2019-11-11 21:35:32",
+			"updated_at": "2019-11-11 21:35:32",
+			"approved": 0,
+			"author": "Data Studio"
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="approve-proposed-competency" class="section-block">
+																		<h3 class="block-title">Approve Proposed Competency by Admin</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/admin/approveCompetency/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 52</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully approved competency."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="revoke-proposed-competency"  class="section-block">
+																		<h3 class="block-title">Revoke Proposed Competency by Admin</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/admin/revokeCompetency/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 52</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully revoked competency."
+}</code></pre>
+																</div><!--//code-block-->
+																</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="employer-vacancy-section" class="doc-section">
+                                <h2 class="section-title">Employer's Vacancies</h2>
+                                <div id="create-vacancy"  class="section-block">
+																		<h3 class="block-title">Create Vacancy by Employer</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/createVacancy</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>title</strong>: Title for vacancy</li>
+																			<li><strong>position</strong>: Position for vacancy</li>
+																			<li><strong>salary</strong>: 500</li>
+																			<li><strong>stack</strong>: Laravel, Vue, HTML, CSS, PHP</li>
+																			<li><strong>location</strong>: Kherson, Ukraine</li>
+																			<li><strong>type</strong>: 1</li>
+																			<li><strong>description</strong>: Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.</li>
+																			<li><strong>competencies[0]</strong>: 6</li>
+																			<li><strong>competencies[1]</strong>: 7</li>
+																			<li><strong>competencies[2]</strong>: 5</li>
+																			<li><strong>competencies[3]</strong>: 1</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully created Vacancy."
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-vacancy"  class="section-block">
+																		<h3 class="block-title">Show Vacancy for Employer</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/showVacancy/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"vacancy": {
+		"id": 1,
+		"user_id": 3,
+		"title": "Title for vacancy",
+		"position": "Position for vacancy",
+		"salary": 500,
+		"stack": "Laravel, Vue, HTML, CSS, PHP",
+		"location": "Kherson, UA",
+		"type": 1,
+		"description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+		"created_at": "2019-11-01 20:39:28",
+		"updated_at": "2019-11-01 20:39:28",
+		"competencies": [
+			{
+				"id": 1,
+				"name": "Itaque enim quasi distinctio officiis.",
+				"description": "Nulla enim excepturi tempora eligendi non et provident. Asperiores cupiditate consequatur repudiandae sed voluptatum laudantium enim. Tempora maiores vitae doloremque occaecati explicabo qui. Et laboriosam impedit saepe assumenda suscipit illo ut perspiciatis.",
+				"created_at": "2019-11-01 20:22:54",
+				"updated_at": "2019-11-01 20:22:54",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"vacancy_id": 1,
+					"competency_id": 1
+				}
+			},
+			{
+				"id": 2,
+				"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+				"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+				"created_at": "2019-11-01 20:22:54",
+				"updated_at": "2019-11-01 20:22:54",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"vacancy_id": 1,
+					"competency_id": 2
+				}
+			}
+		]
+	},
+	"applicants": [
+		{
+			"coincidences": 2,
+			"employee_id": 2,
+			"title": "refref",
+			"name": "erferfre e",
+			"location": "efrvvbytuy",
+			"salary": 1000,
+			"competencies": [
+				{
+					"id": 1,
+					"name": "Itaque enim quasi distinctio officiis.",
+					"description": "Nulla enim excepturi tempora eligendi non et provident. Asperiores cupiditate consequatur repudiandae sed voluptatum laudantium enim. Tempora maiores vitae doloremque occaecati explicabo qui. Et laboriosam impedit saepe assumenda suscipit illo ut perspiciatis.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 1,
+						"competency_id": 1,
+						"is_verified": 1,
+						"file": "r43r4"
+					}
+				},
+				{
+					"id": 4,
+					"name": "Qui ad dignissimos laborum et vel.",
+					"description": "Eius rerum sit ad expedita quasi pariatur omnis. Culpa consequatur enim magnam consequatur voluptatem. Quisquam ut saepe et quaerat non autem at.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 1,
+						"competency_id": 4,
+						"is_verified": 1,
+						"file": "34r3r4r4"
+					}
+				}
+			]
+		},
+		{
+			"coincidences": 2,
+			"employee_id": 4,
+			"title": "qwqeqew",
+			"name": "njoomk y",
+			"location": "yuiuyujutuy",
+			"salary": 800,
+			"competencies": [
+				{
+					"id": 2,
+					"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+					"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 2,
+						"competency_id": 2,
+						"is_verified": 1,
+						"file": "23r32r2"
+					}
+				},
+				{
+					"id": 3,
+					"name": "Eum saepe est odit repudiandae consequatur dolorem velit.",
+					"description": "Quia fugiat blanditiis laudantium dolorem saepe est. Autem eum quibusdam voluptas laudantium quasi. Commodi totam ab perspiciatis cupiditate sit. Quasi illo et dolor nesciunt voluptas et tempora.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 2,
+						"competency_id": 3,
+						"is_verified": 1,
+						"file": "23r32r2"
+					}
+				},
+				{
+					"id": 1,
+					"name": "Itaque enim quasi distinctio officiis.",
+					"description": "Nulla enim excepturi tempora eligendi non et provident. Asperiores cupiditate consequatur repudiandae sed voluptatum laudantium enim. Tempora maiores vitae doloremque occaecati explicabo qui. Et laboriosam impedit saepe assumenda suscipit illo ut perspiciatis.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 2,
+						"competency_id": 1,
+						"is_verified": 1,
+						"file": "23r32r2"
+					}
+				}
+			]
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-vacancies"  class="section-block">
+																		<h3 class="block-title">Show All Vacancies for Employer</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/showVacancies</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"vacancies": [
+		{
+			"id": 1,
+			"user_id": 3,
+			"title": "Title for vacancy",
+			"position": "Position for vacancy",
+			"salary": 500,
+			"stack": "Laravel, Vue, HTML, CSS, PHP",
+			"location": "Kherson, UA",
+			"type": 1,
+			"description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+			"created_at": "2019-11-01 20:39:28",
+			"updated_at": "2019-11-01 20:39:28"
+		},
+		{
+			"id": 2,
+			"user_id": 3,
+			"title": "Title for vacancy",
+			"position": "Position for vacancy",
+			"salary": 500,
+			"stack": "Laravel, Vue, HTML, CSS, PHP",
+			"location": "Kherson, UA",
+			"type": 1,
+			"description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+			"created_at": "2019-11-01 20:39:32",
+			"updated_at": "2019-11-01 20:39:32"
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="update-vacancy"  class="section-block">
+																		<h3 class="block-title">Update Vacancy by Employer</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/updateVacancy/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>title</strong>: Title for vacancy</li>
+																			<li><strong>position</strong>: Position for vacancy</li>
+																			<li><strong>salary</strong>: 500</li>
+																			<li><strong>stack</strong>: Laravel, Vue, HTML, CSS, PHP</li>
+																			<li><strong>location</strong>: Kherson, Ukraine</li>
+																			<li><strong>type</strong>: 1</li>
+																			<li><strong>description</strong>: Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.</li>
+																			<li><strong>competencies[0]</strong>: 6</li>
+																			<li><strong>competencies[1]</strong>: 7</li>
+																			<li><strong>competencies[2]</strong>: 5</li>
+																			<li><strong>competencies[3]</strong>: 1</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully updated Vacancy."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="delete-vacancy"  class="section-block">
+																		<h3 class="block-title">Delete Vacancy by Employer</h3>
+																		<h4><span class="badge badge-danger">DELETE</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/destroyVacancy/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully deleted Vacancy."
+}	
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="employee-suggest-vacancy-section" class="doc-section">
+                                <h2 class="section-title">Show Suggestions for Employee</h2>
+																<div  class="section-block">
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/getSuggestions</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"vacancies": [
+		{
+			"coincidences": 2,
+			"vacancy_id": 1,
+			"title": "Title for vacancy",
+			"position": "Position for vacancy",
+			"stack": "Laravel, Vue, HTML, CSS, PHP",
+			"salary": null,
+			"competencies": [
+				{
+					"id": 1,
+					"name": "Itaque enim quasi distinctio officiised.",
+					"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.efrr",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-11 20:37:04",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"vacancy_id": 1,
+						"competency_id": 1
+					}
+				},
+				{
+					"id": 45,
+					"name": "Quia magni laboriosam qui reiciendis.",
+					"description": "Sunt eveniet aut qui distinctio eos facere. Doloremque perferendis nemo quidem expedita sit. Aliquam aut et aut incidunt. Consectetur perspiciatis fugiat earum est ullam esse. Eaque itaque non aperiam asperiores.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"vacancy_id": 1,
+						"competency_id": 45
+					}
+				}
+			]
+		},
+		{
+			"coincidences": 1,
+			"vacancy_id": 2,
+			"title": "Title for vacancy",
+			"position": "Position for vacancy",
+			"stack": "Laravel, Vue, HTML, CSS, PHP",
+			"salary": null,
+			"competencies": [
+				{
+					"id": 4,
+					"name": "Qui ad dignissimos laborum et vel.",
+					"description": "Eius rerum sit ad expedita quasi pariatur omnis. Culpa consequatur enim magnam consequatur voluptatem. Quisquam ut saepe et quaerat non autem at.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"vacancy_id": 2,
+						"competency_id": 4
+					}
+				},
+				{
+					"id": 2,
+					"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+					"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"vacancy_id": 2,
+						"competency_id": 2
+					}
+				}
+			]
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+                            </section><!--//doc-section-->
+														<section id="employer-course-section" class="doc-section">
+                                <h2 class="section-title">Employer's Courses</h2>
+                                <div id="create-course"  class="section-block">
+																		<h3 class="block-title">Create Course by Employer</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/createCourse</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>title</strong>: Title for course</li>
+																			<li><strong>description</strong>: Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.</li>
+																			<li><strong>image</strong>: file.jpg</li>
+																			<li><strong>text</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+																			<li><strong>stack</strong>: Laravel, Vue, HTML, CSS, PHP</li>
+																			<li><strong>location</strong>: Kyiv, UA</li>
+																			<li><strong>competencies[0]</strong>: 6</li>
+																			<li><strong>competencies[1]</strong>: 7</li>
+																			<li><strong>competencies[2]</strong>: 1</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully created Course."
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-course"  class="section-block">
+																		<h3 class="block-title">Show Course for Employer</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/showCourse/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"course": {
+		"id": 1,
+		"user_id": 2,
+		"title": "Title for course",
+		"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+		"image": "1573579914.jpg",
+		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"location": "Kyiv, UA",
+		"stack": "HTML, CSS",
+		"created_at": "2019-11-12 17:31:55",
+		"updated_at": "2019-11-12 17:31:55",
+		"competencies": [
+			{
+				"id": 6,
+				"name": "Necessitatibus veniam ab eum a eius.",
+				"description": "Sapiente eius voluptate dolores et enim. Est doloribus ipsa voluptas quasi quo. Dolor beatae quibusdam eligendi est.",
+				"created_at": "2019-11-12 17:20:17",
+				"updated_at": "2019-11-12 17:20:17",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"course_id": 1,
+					"competency_id": 6
+				}
+			},
+			{
+				"id": 7,
+				"name": "Voluptatum dolorum fugiat qui non delectus mollitia.",
+				"description": "Recusandae iure dicta et numquam in. Nihil cum fuga suscipit quam voluptas aut. Sed id consequuntur fuga.",
+				"created_at": "2019-11-12 17:20:17",
+				"updated_at": "2019-11-12 17:20:17",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"course_id": 1,
+					"competency_id": 7
+				}
+			},
+			{
+				"id": 1,
+				"name": "Eos quidem voluptatem porro iste deleniti nesciunt quisquam quia.",
+				"description": "Soluta dolor quis numquam omnis omnis. Illum aliquid pariatur earum recusandae veniam dolor.",
+				"created_at": "2019-11-12 17:20:17",
+				"updated_at": "2019-11-12 17:20:17",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"course_id": 1,
+					"competency_id": 1
+				}
+			}
+		]
+	}
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-courses"  class="section-block">
+																		<h3 class="block-title">Show All Courses for Employer</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/showCourses</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"courses": [
+		{
+			"id": 1,
+			"user_id": 2,
+			"title": "New title for course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"image": "1573579914.jpg",
+			"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+			"location": "Kherson, UA",
+			"stack": "Laravel, Vue, HTML, CSS, PHP",
+			"created_at": "2019-11-12 17:31:55",
+			"updated_at": "2019-11-12 17:39:53"
+		},
+		{
+			"id": 2,
+			"user_id": 2,
+			"title": "New course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"image": "1573580848.jpg",
+			"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+			"location": "Kyiv, UA",
+			"stack": "HTML, CSS",
+			"created_at": "2019-11-12 17:47:28",
+			"updated_at": "2019-11-12 17:47:28"
+		}
+	]
+}	
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="update-course"  class="section-block">
+																		<h3 class="block-title">Update Course by Employer</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/updateCourse/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>title</strong>: New title for course</li>
+																			<li><strong>description</strong>: Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.</li>
+																			<li><strong>image</strong>: 1573579914.jpg</li>
+																			<li><strong>text</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+																			<li><strong>stack</strong>: Laravel, Vue, HTML, CSS, PHP</li>
+																			<li><strong>location</strong>: Kherson, Ukraine</li>
+																			<li><strong>competencies[0]</strong>: 9</li>
+																			<li><strong>competencies[1]</strong>: 5</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully updated Course."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="delete-course"  class="section-block">
+																		<h3 class="block-title">Delete Course by Employer</h3>
+																		<h4><span class="badge badge-danger">DELETE</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/destroyCourse/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully deleted Course."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="employee-course-section" class="doc-section">
+                                <h2 class="section-title">Employee's Courses</h2>
+																<div id="show-employee-courses"  class="section-block">
+																		<h3 class="block-title">Get Suggestions Course For Employee</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/getSuggestionsCourses</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"courses": [
+		{
+			"usefulСompetencies": 3,
+			"course_id": 2,
+			"title": "New course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"stack": "HTML, CSS",
+			"competencies": [
+				{
+					"id": 6,
+					"name": "Necessitatibus veniam ab eum a eius.",
+					"description": "Sapiente eius voluptate dolores et enim. Est doloribus ipsa voluptas quasi quo. Dolor beatae quibusdam eligendi est.",
+					"created_at": "2019-11-12 17:20:17",
+					"updated_at": "2019-11-12 17:20:17",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"course_id": 2,
+						"competency_id": 6
+					}
+				},
+				{
+					"id": 7,
+					"name": "Voluptatum dolorum fugiat qui non delectus mollitia.",
+					"description": "Recusandae iure dicta et numquam in. Nihil cum fuga suscipit quam voluptas aut. Sed id consequuntur fuga.",
+					"created_at": "2019-11-12 17:20:17",
+					"updated_at": "2019-11-12 17:20:17",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"course_id": 2,
+						"competency_id": 7
+					}
+				},
+				{
+					"id": 1,
+					"name": "Eos quidem voluptatem porro iste deleniti nesciunt quisquam quia.",
+					"description": "Soluta dolor quis numquam omnis omnis. Illum aliquid pariatur earum recusandae veniam dolor.",
+					"created_at": "2019-11-12 17:20:17",
+					"updated_at": "2019-11-12 17:20:17",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"course_id": 2,
+						"competency_id": 1
+					}
+				}
+			]
+		},
+		{
+			"usefulСompetencies": 2,
+			"course_id": 1,
+			"title": "New title for course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"stack": "Laravel, Vue, HTML, CSS, PHP",
+			"competencies": [
+				{
+					"id": 9,
+					"name": "Assumenda aspernatur velit itaque recusandae.",
+					"description": "Voluptate temporibus ipsum voluptas odit consequatur ex sit rerum. Cumque sint maxime illum recusandae nulla. Quo tempore soluta et veritatis ut rerum. Eum fuga veniam excepturi soluta cupiditate repellendus adipisci.",
+					"created_at": "2019-11-12 17:20:17",
+					"updated_at": "2019-11-12 17:20:17",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"course_id": 1,
+						"competency_id": 9
+					}
+				},
+				{
+					"id": 5,
+					"name": "Repellat fuga voluptatum dicta et.",
+					"description": "Explicabo quibusdam consectetur temporibus excepturi. Et architecto omnis ad in voluptas. Ut laboriosam et exercitationem sed est illum et. Dolorem sit assumenda cumque et vero.",
+					"created_at": "2019-11-12 17:20:17",
+					"updated_at": "2019-11-12 17:20:17",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"course_id": 1,
+						"competency_id": 5
+					}
+				}
+			]
+		}
+	]
+}	
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-employee-course"  class="section-block">
+																		<h3 class="block-title">Show Course Info For Employee</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/showCourse/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"course": {
+		"id": 1,
+		"user_id": 2,
+		"title": "New title for course",
+		"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+		"image": "1573579914.jpg",
+		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"location": "Kherson, UA",
+		"stack": "Laravel, Vue, HTML, CSS, PHP",
+		"created_at": "2019-11-12 17:31:55",
+		"updated_at": "2019-11-12 17:39:53",
+		"competencies": [
+			{
+				"id": 9,
+				"name": "Assumenda aspernatur velit itaque recusandae.",
+				"description": "Voluptate temporibus ipsum voluptas odit consequatur ex sit rerum. Cumque sint maxime illum recusandae nulla. Quo tempore soluta et veritatis ut rerum. Eum fuga veniam excepturi soluta cupiditate repellendus adipisci.",
+				"created_at": "2019-11-12 17:20:17",
+				"updated_at": "2019-11-12 17:20:17",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"course_id": 1,
+					"competency_id": 9
+				}
+			},
+			{
+				"id": 5,
+				"name": "Repellat fuga voluptatum dicta et.",
+				"description": "Explicabo quibusdam consectetur temporibus excepturi. Et architecto omnis ad in voluptas. Ut laboriosam et exercitationem sed est illum et. Dolorem sit assumenda cumque et vero.",
+				"created_at": "2019-11-12 17:20:17",
+				"updated_at": "2019-11-12 17:20:17",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"course_id": 1,
+					"competency_id": 5
+				}
+			}
+		]
+	}
+}
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="employee-course-application-section" class="doc-section">
+																<h2 class="section-title">Employee's Applications for Course</h2>
+																<div id="create-course-application"  class="section-block">
+																	<h3 class="block-title">Create Course Application by Employer</h3>
+																	<h4><span class="badge badge-primary">POST</span></h4>
+																	<p><pre><code class="plaintext uri_display">/employee/createCourseApplication/{id}</code></pre></p>
+																	<h6>URI Parameters</h6>
+																	<ul class="list query-list">
+																		<li><strong>id</strong>: 1</li>
+																	</ul>
+																	<h6>Query Parameters (Multipart/form-data)</h6>
+																	<ul class="list query-list">
+																		<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																	</ul>
+																	<div class="code-block">
+																		<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully created a course application."
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-courses-application"  class="section-block">
+																		<h3 class="block-title">Show All Course Applications for Employee</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/showCourseApplications</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"applications": [
+		{
+			"id": 1,
+			"couse_id": 1,
+			"status": 0,
+			"updated_at": "2019-11-12 20:41:02",
+			"title": "New title for course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"location": "Kherson, UA",
+			"stack": "Laravel, Vue, HTML, CSS, PHP"
+		},
+		{
+			"id": 2,
+			"couse_id": 2,
+			"status": 0,
+			"updated_at": "2019-11-12 20:51:28",
+			"title": "New course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"location": "Kyiv, UA",
+			"stack": "HTML, CSS"
+		}
+	]
+}	
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-courses-application-by-type"  class="section-block">
+																	<h3 class="block-title">Show Courses Applications For Employee by Type</h3>
+																	<h4><span class="badge badge-success">GET</span></h4>
+																	<p><pre><code class="plaintext uri_display">/showCourseApplicationsType/{status}</code></pre></p>
+																	<h6>URI Parameters</h6>
+																	<ul class="list query-list">
+																		<li><strong>status</strong>: 1 {default option: 0, possible options: 0, 1}</li>
+																	</ul>
+																	<h6>Query Parameters (Multipart/form-data)</h6>
+																	<ul class="list query-list">
+																		<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																	</ul>
+																	<div class="code-block">
+																		<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"applications": [
+		{
+			"id": 2,
+			"couse_id": 2,
+			"status": 1,
+			"updated_at": "2019-11-12 20:51:28",
+			"title": "New course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"location": "Kyiv, UA",
+			"stack": "HTML, CSS"
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="delete-course-application"  class="section-block">
+																		<h3 class="block-title">Delete Course by Employer</h3>
+																		<h4><span class="badge badge-danger">DELETE</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/destroyCourseApplication/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully deleted a course application."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="employer-course-application-section" class="doc-section">
+																<h2 class="section-title">Employer's Courses Applications</h2>
+																<div id="show-employee-courses-application"  class="section-block">
+																		<h3 class="block-title">Show All Courses Applications for Employer</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/showCourseApplications</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"applications": [
+		{
+			"id": 1,
+			"couse_id": 1,
+			"status": 0,
+			"created_at": "2019-11-12 20:41:02",
+			"updated_at": "2019-11-12 20:41:02",
+			"title": "New title for course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"location": "Kherson, UA",
+			"stack": "Laravel, Vue, HTML, CSS, PHP",
+			"employee-name": "Maxim",
+			"employee-surname": "Pekulin",
+			"employee-location": "Kherson, Ukraine",
+			"employee-birth": "1980",
+			"employee-phone": "+380959999999",
+			"employee-email": "employee2@gmail.com"
+		},
+		{
+			"id": 2,
+			"couse_id": 2,
+			"status": 1,
+			"created_at": "2019-11-12 20:51:28",
+			"updated_at": "2019-11-12 20:51:28",
+			"title": "New course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"location": "Kyiv, UA",
+			"stack": "HTML, CSS",
+			"employee-name": "Maxim",
+			"employee-surname": "Pekulin",
+			"employee-location": "Kherson, Ukraine",
+			"employee-birth": "1980",
+			"employee-phone": "+380959999999",
+			"employee-email": "employee2@gmail.com"
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-employee-courses-application-by-type"  class="section-block">
+																	<h3 class="block-title">Show Courses Applications For Employer by Type</h3>
+																	<h4><span class="badge badge-success">GET</span></h4>
+																	<p><pre><code class="plaintext uri_display">/api/employer/showCourseApplicationsType/{status}</code></pre></p>
+																	<h6>URI Parameters</h6>
+																	<ul class="list query-list">
+																		<li><strong>status</strong>: 1 {default option: 0, possible options: 0, 1}</li>
+																	</ul>
+																	<h6>Query Parameters (Multipart/form-data)</h6>
+																	<ul class="list query-list">
+																		<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																	</ul>
+																	<div class="code-block">
+																		<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"applications": [
+		{
+			"id": 2,
+			"couse_id": 2,
+			"status": 1,
+			"created_at": "2019-11-12 20:51:28",
+			"updated_at": "2019-11-12 20:51:28",
+			"title": "New course",
+			"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+			"location": "Kyiv, UA",
+			"stack": "HTML, CSS",
+			"employee-name": "Maxim",
+			"employee-surname": "Pekulin",
+			"employee-location": "Kherson, Ukraine",
+			"employee-birth": "1980",
+			"employee-phone": "+380959999999",
+			"employee-email": "employee2@gmail.com"
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="processed-employee-course-application"  class="section-block">
+																		<h3 class="block-title">Processed Course Application By Employer</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/processedCourseApplication/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "Сourse application has been successfully processed."
+}</code></pre>
+																		</div><!--//code-block-->
+																	</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="employee-competency-section" class="doc-section">
+                                <h2 class="section-title">Employee's Competencies</h2>
+                                <div id="create-employee-competency"  class="section-block">
+																		<h3 class="block-title">Add Competency By Employee</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/createCompetency</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>competency_id</strong>: 15</li>
+																			<li><strong>description</strong>: Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.</li>
+																			<li><strong>file</strong>: file.doc</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully created your Competency."
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-employee-competency"  class="section-block">
+																		<h3 class="block-title">Show Competency for Employee</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/showCompetency/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 9</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"competencies": {
+		"1": {
+			"id": 9,
+			"name": "Assumenda aspernatur velit itaque recusandae.",
+			"description": "Voluptate temporibus ipsum voluptas odit consequatur ex sit rerum. Cumque sint maxime illum recusandae nulla. Quo tempore soluta et veritatis ut rerum. Eum fuga veniam excepturi soluta cupiditate repellendus adipisci.",
+			"created_at": "2019-11-12 17:20:17",
+			"updated_at": "2019-11-12 17:20:17",
+			"approved": 1,
+			"author": "Admin of finder.work",
+			"pivot": {
+				"employee_profile_id": 1,
+				"competency_id": 9,
+				"is_verified": 0,
+				"file": "1573582587.doc"
+			}
+		}
+	}
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="show-employee-competencies"  class="section-block">
+																		<h3 class="block-title">Show All Competencies for Employee</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/showCompetencies</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"competencies": [
+		{
+			"id": 15,
+			"name": "Ab ut eos aliquam voluptates commodi.",
+			"description": "Fugit non eum dolorum quidem impedit aut nam. Quaerat similique perspiciatis eum ex voluptatum et et. Corrupti saepe magni omnis fugit.",
+			"created_at": "2019-11-12 17:20:17",
+			"updated_at": "2019-11-12 17:20:17",
+			"approved": 1,
+			"author": "Admin of finder.work",
+			"pivot": {
+				"employee_profile_id": 1,
+				"competency_id": 15,
+				"is_verified": 1,
+				"file": "1573582381.doc"
+			}
+		},
+		{
+			"id": 9,
+			"name": "Assumenda aspernatur velit itaque recusandae.",
+			"description": "Voluptate temporibus ipsum voluptas odit consequatur ex sit rerum. Cumque sint maxime illum recusandae nulla. Quo tempore soluta et veritatis ut rerum. Eum fuga veniam excepturi soluta cupiditate repellendus adipisci.",
+			"created_at": "2019-11-12 17:20:17",
+			"updated_at": "2019-11-12 17:20:17",
+			"approved": 1,
+			"author": "Admin of finder.work",
+			"pivot": {
+				"employee_profile_id": 1,
+				"competency_id": 9,
+				"is_verified": 0,
+				"file": "1573582587.doc"
+			}
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+                                </div><!--//section-block-->
+                                <div id="update-employee-competency"  class="section-block">
+																		<h3 class="block-title">Update Competency by Employee</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/updateCompetency/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>description</strong>: Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.</li>
+																			<li><strong>file</strong>: new-file.doc</li>
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully updated your Competency."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="delete-employee-competency"  class="section-block">
+																		<h3 class="block-title">Delete Competency by Employee</h3>
+																		<h4><span class="badge badge-danger">DELETE</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employee/destroyCompetency/{id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>id</strong>: 1</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully deleted your Employee's competency."
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+														</section><!--//doc-section-->
+														<section id="employee-mutual-matching-section" class="doc-section">
+															<h2 class="section-title">Employee's Mutual Matching</h2>
+															<div id="send-request-for-vacancy"  class="section-block">
+																	<h3 class="block-title">Send Request for Vacancy by Employee</h3>
+																	<h4><span class="badge badge-primary">POST</span></h4>
+																	<p><pre><code class="plaintext uri_display">/api/employer/vacancy/{vacancy_id}/send/{employer_id}</code></pre></p>
+																	<h6>Query Parameters (Multipart/form-data)</h6>
+																	<h6>URI Parameters</h6>
+																	<ul class="list query-list">
+																		<li><strong>vacancy_id</strong>: 1</li>
+																		<li><strong>employer_id</strong>: 3</li>
+																	</ul>
+																	<ul class="list query-list">
+																		<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																	</ul>
+																	<div class="code-block">
+																		<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully sent request for Employer for selected vacancy!"
+}</code></pre>
+																</div><!--//code-block-->
+															</div><!--//section-block-->
+															<div id="get-sents-employee-requests"  class="section-block">
+																	<h3 class="block-title">Get Sent Requests by Employee</h3>
+																	<h4><span class="badge badge-success">GET</span></h4>
+																	<p><pre><code class="plaintext uri_display">/api/employee/sent</code></pre></p>
+																	<h6>Query Parameters (Multipart/form-data)</h6>
+																	<ul class="list query-list">
+																		<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																	</ul>
+																	<div class="code-block">
+																		<h6>Response Example</h6>
+<pre><code class="json">{
+  "success": true,
+  "requestsByEmployee": [
+    {
+      "vacancy_id": 1,
+      "vacancy_title": "UT/X Developer",
+      "employer_agreement": 0,
+      "employer_hr": "Pekulin Maxim",
+      "employer_founded": "2015",
+      "employer_location": "Kherson, UA",
+      "employer_num_of_employees": 19
+    }
+  ]
+}
+</code></pre>
+																</div><!--//code-block-->
+															</div><!--//section-block-->
+															<div id="get-received-employee-requests"  class="section-block">
+																<h3 class="block-title">Get Received Requests by Employee</h3>
+																<h4><span class="badge badge-success">GET</span></h4>
+																<p><pre><code class="plaintext uri_display">/api/employee/received</code></pre></p>
+																<h6>Query Parameters (Multipart/form-data)</h6>
+																<ul class="list query-list">
+																	<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																</ul>
+																<div class="code-block">
+																	<h6>Response Example</h6>
+<pre><code class="json">{
+  "success": true,
+  "requestsByEmployee": [
+    {
+      "vacancy_id": 1,
+      "vacancy_title": "UT/X Developer",
+      "employer_agreement": 0,
+      "employer_hr": "Pekulin Maxim",
+      "employer_founded": "2015",
+      "employer_location": "Kherson, UA",
+      "employer_num_of_employees": 19
+    }
+  ]
+}
+</code></pre>
+															</div><!--//code-block-->
+															</div><!--//section-block-->
+															<div id="accept-employer-request"  class="section-block">
+																	<h3 class="block-title">Accept Request from Employer by Employee</h3>
+																	<h4><span class="badge badge-primary">POST</span></h4>
+																	<p><pre><code class="plaintext uri_display">/api/employee/received/{vacancy_id}/accept/{employer_id}</code></pre></p>
+																	<h6>URI Parameters</h6>
+																	<ul class="list query-list">
+																		<li><strong>vacancy_id</strong>: 1</li>
+																		<li><strong>employer_id</strong>: 3</li>
+																	</ul>
+																	<h6>Query Parameters (Multipart/form-data)</h6>
+																	<ul class="list query-list">
+																		<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																	</ul>
+																	<div class="code-block">
+																		<h6>Response Example</h6>
+<pre><code class="json">{
+  "success": true,
+  "message": "You have successfully accepted request from Employer for vacancy!"
+}
+</code></pre>
+																</div><!--//code-block-->
+															</div><!--//section-block-->
+															<div id="get-employee-interviews"  class="section-block">
+																<h3 class="block-title">Get Vacancies for Interview by Employee</h3>
+																<h4><span class="badge badge-success">GET</span></h4>
+																<p><pre><code class="plaintext uri_display">/api/employee/interview</code></pre></p>
+																<h6>Query Parameters (Multipart/form-data)</h6>
+																<ul class="list query-list">
+																	<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																</ul>
+																<div class="code-block">
+																	<h6>Response Example</h6>
+<pre><code class="json">{
+  "success": true,
+  "vacanciesForInterview": [
+    {
+      "vacancy_id": 1,
+      "vacancy_title": "UT/X Developer",
+      "employer": {
+        "id": 3,
+        "email": "employer@gmail.com",
+        "is_verified": 1,
+        "status": "1",
+        "role": "employer",
+        "profile": {
+          "id": 1,
+          "user_id": 3,
+          "title": "Studio",
+          "image": "1572640662.jpg",
+          "founded": "2015",
+          "hr": "Pekulin Maxim",
+          "mobile_phone": "+380959999999",
+          "location": "Kherson, Ukraine",
+          "num_of_employees": 19,
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "website": "http://finder.work",
+          "created_at": "2019-11-01 20:37:43",
+          "updated_at": "2019-11-01 20:37:43"
+        }
+      }
+    }
+  ]
+}
+</code></pre>
+															</div><!--//code-block-->
+															</div><!--//section-block-->
+															<div id="get-employee-interview"  class="section-block">
+																<h3 class="block-title">Get Vacancy for Interview by Employeе</h3>
+																<h4><span class="badge badge-success">GET</span></h4>
+																<p><pre><code class="plaintext uri_display">/api/employee/interview/{employer_id}/{vacancy_id}</code></pre></p>
+																<h6>URI Parameters</h6>
+																<ul class="list query-list">
+																	<li><strong>employer_id</strong>: 3</li>
+																	<li><strong>vacancy_id</strong>: 1</li>
+																</ul>
+																<h6>Query Parameters (Multipart/form-data)</h6>
+																<ul class="list query-list">
+																	<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																</ul>
+																<div class="code-block">
+																	<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"vacancy": {
+		"id": 1,
+		"user_id": 3,
+		"title": "UT/X Developer (Weather App)",
+		"position": "UT/X Developer",
+		"salary": 500,
+		"stack": "Laravel, Vue, HTML, CSS, PHP",
+		"location": "Kherson, Ukraine",
+		"type": 1,
+		"description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+		"created_at": "2019-11-01 20:39:28",
+		"updated_at": "2019-11-01 20:39:28",
+		"competencies": [
+			{
+				"id": 1,
+				"name": "Itaque enim quasi distinctio officiised.",
+				"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.efrr",
+				"created_at": "2019-11-01 20:22:54",
+				"updated_at": "2019-11-11 20:37:04",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"vacancy_id": 1,
+					"competency_id": 1
+				}
+			},
+			{
+				"id": 2,
+				"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+				"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+				"created_at": "2019-11-01 20:22:54",
+				"updated_at": "2019-11-01 20:22:54",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"vacancy_id": 1,
+					"competency_id": 2
+				}
+			}
+		]
+	},
+	"employer": {
+		"id": 3,
+		"email": "employer@gmail.com",
+		"is_verified": 1,
+		"status": "1",
+		"role": "employer",
+		"profile": {
+			"id": 1,
+			"user_id": 3,
+			"title": "aStudio",
+			"image": "1572640662.jpg",
+			"founded": "2015",
+			"hr": "Pekulon Maxim",
+			"mobile_phone": "+380959999999",
+			"location": "Kherson, Ukraine",
+			"num_of_employees": 19,
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+			"website": "http://finder.work",
+			"created_at": "2019-11-01 20:37:43",
+			"updated_at": "2019-11-01 20:37:43"
+		}
+	}
+}
+</code></pre>
+															</div><!--//code-block-->
+														</div><!--//section-block-->
+
+														</section><!--//doc-section-->
+														<section id="employer-mutual-matching-section" class="doc-section">
+																<h2 class="section-title">Employee's Mutual Matching</h2>
+																<div id="send-request-for-employee"  class="section-block">
+																		<h3 class="block-title">Send Request to Employee on Vacancy by Employer</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/vacancies/{vacancy_id}/send/{employee_id}</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>vacancy_id</strong>: 1</li>
+																			<li><strong>employer_id</strong>: 4</li>
+																		</ul>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully sent request for Employee for selected vacancy!"
+}</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="get-sents-employer-requests"  class="section-block">
+																		<h3 class="block-title">Get Sent Requests by Employer</h3>
+																		<h4><span class="badge badge-success">GET</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/sent</code></pre></p>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"requestsByEmployer": [
+		{
+			"vacancy_id": 1,
+			"vacancy_title": "Title for vacancy",
+			"employee_agreement": 0,
+			"employee_title": "qwqeqew",
+			"employee_name": "njoomk y",
+			"employee_location": "yuiuyujutuy",
+			"employee_salary": 800,
+			"employee_competencies": [
+			
+				{
+					"id": 3,
+					"name": "Eum saepe est odit repudiandae consequatur dolorem velit.",
+					"description": "Quia fugiat blanditiis laudantium dolorem saepe est. Autem eum quibusdam voluptas laudantium quasi. Commodi totam ab perspiciatis cupiditate sit. Quasi illo et dolor nesciunt voluptas et tempora.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 2,
+						"competency_id": 3,
+						"is_verified": 1,
+						"file": "null"
+					}
+				},
+				{
+					"id": 1,
+					"name": "Itaque enim quasi distinctio officiised.",
+					"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.efrr",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-11 20:37:04",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 2,
+						"competency_id": 1,
+						"is_verified": 1,
+						"file": "file.pdf"
+					}
+				}
+			]
+		}
+	]
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="get-received-employer-requests"  class="section-block">
+																	<h3 class="block-title">Get Received Requests by Employer</h3>
+																	<h4><span class="badge badge-success">GET</span></h4>
+																	<p><pre><code class="plaintext uri_display">/api/employer/received</code></pre></p>
+																	<h6>Query Parameters (Multipart/form-data)</h6>
+																	<ul class="list query-list">
+																		<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																	</ul>
+																	<div class="code-block">
+																		<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"requestsForEmployer": [
+		{
+			"vacancy_id": 1,
+			"vacancy_title": "Middle PHP Developer for Finance project.",
+			"employee_title": "PHP Developer",
+			"employee_name": "Maxim P.",
+			"employee_location": "Kyiv, Ukraine",
+			"employee_salary": 800,
+			"employee_competencies": [
+				{
+					"id": 2,
+					"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+					"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 2,
+						"competency_id": 2,
+						"is_verified": 1,
+						"file": "null"
+					}
+				},
+				{
+					"id": 1,
+					"name": "Itaque enim quasi distinctio officiised.",
+					"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.efrr",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-11 20:37:04",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 2,
+						"competency_id": 1,
+						"is_verified": 1,
+						"file": "file.jpeg"
+					}
+				}
+			]
+		}
+	]
+}
+</code></pre>
+																</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="accept-employee-request"  class="section-block">
+																		<h3 class="block-title">Accept Request from Employee by Employer</h3>
+																		<h4><span class="badge badge-primary">POST</span></h4>
+																		<p><pre><code class="plaintext uri_display">/api/employer/received/{vacancy_id}/accept/{employee_id}</code></pre></p>
+																		<h6>URI Parameters</h6>
+																		<ul class="list query-list">
+																			<li><strong>vacancy_id</strong>: 1</li>
+																			<li><strong>employer_id</strong>: 4</li>
+																		</ul>
+																		<h6>Query Parameters (Multipart/form-data)</h6>
+																		<ul class="list query-list">
+																			<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																		</ul>
+																		<div class="code-block">
+																			<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"message": "You have successfully accepted request from Employee for vacancy!"
+}
+</code></pre>
+																	</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="get-employer-interviews"  class="section-block">
+																	<h3 class="block-title">Get Employees for Interview</h3>
+																	<h4><span class="badge badge-success">GET</span></h4>
+																	<p><pre><code class="plaintext uri_display">/api/employer/interview</code></pre></p>
+																	<h6>Query Parameters (Multipart/form-data)</h6>
+																	<ul class="list query-list">
+																		<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																	</ul>
+																	<div class="code-block">
+																		<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"interviewingEmployees": [
+		{
+			"vacancy_id": 1,
+			"vacancy_title": "Title for vacancy",
+			"employee_id": 2,
+			"employee_email": "employee1@gmail.com",
+			"employee_phone": "380999999999",
+			"employee_title": "HTML Coder",
+			"employee_name": "Maxim",
+			"employee_surname": "Pekulin",
+			"employee_location": "Kherson, Ukraine",
+			"employee_salary": 50,
+			"employee_competencies": [
+				{
+					"id": 1,
+					"name": "Itaque enim quasi distinctio officiised.",
+					"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.efrr",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-11 20:37:04",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 1,
+						"competency_id": 1,
+						"is_verified": 1,
+						"file": "file1.png"
+					}
+				},
+				{
+					"id": 4,
+					"name": "Qui ad dignissimos laborum et vel.",
+					"description": "Eius rerum sit ad expedita quasi pariatur omnis. Culpa consequatur enim magnam consequatur voluptatem. Quisquam ut saepe et quaerat non autem at.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 1,
+						"competency_id": 4,
+						"is_verified": 1,
+						"file": "file2.pdf"
+					}
+				}
+			]
+		},
+		{
+			"vacancy_id": 1,
+			"vacancy_title": "Senior Java Spring Developer (Banking)",
+			"employee_id": 4,
+			"employee_email": "employee2@gmail.com",
+			"employee_phone": "380958888888",
+			"employee_title": "Java Developer",
+			"employee_name": "Dimitriy",
+			"employee_surname": "Kl'on",
+			"employee_location": "Kharkiv, Ukraine",
+			"employee_salary": 800,
+			"employee_competencies": [
+				{
+					"id": 2,
+					"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+					"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-01 20:22:54",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 2,
+						"competency_id": 2,
+						"is_verified": 1,
+						"file": "null"
+					}
+				},
+				{
+					"id": 1,
+					"name": "Itaque enim quasi distinctio officiised.",
+					"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.efrr",
+					"created_at": "2019-11-01 20:22:54",
+					"updated_at": "2019-11-11 20:37:04",
+					"approved": 1,
+					"author": "Admin of finder.work",
+					"pivot": {
+						"employee_profile_id": 2,
+						"competency_id": 1,
+						"is_verified": 1,
+						"file": "file.pdf"
+					}
+				}
+			]
+		}
+	]
+}
+</code></pre>
+																</div><!--//code-block-->
+																</div><!--//section-block-->
+																<div id="get-employer-interview"  class="section-block">
+																	<h3 class="block-title">Get Employees for Interview</h3>
+																	<h4><span class="badge badge-success">GET</span></h4>
+																	<p><pre><code class="plaintext uri_display">/api/employer/interview/{employee_id}/{vacancy_id}</code></pre></p>
+																	<h6>URI Parameters</h6>
+																	<ul class="list query-list">
+																		<li><strong>employee_id</strong>: 4</li>
+																		<li><strong>vacancy_id</strong>: 1</li>
+																	</ul>
+																	<h6>Query Parameters (Multipart/form-data)</h6>
+																	<ul class="list query-list">
+																		<li><strong>Bearer token</strong>: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9maW5kZXIud29ya1wvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU3MzIxNzM3MSwiZXhwIjoxNTczMjIwOTcxLCJuYmYiOjE1NzMyMTczNzEsImp0aSI6IktaS0kweUxSSlBUSU9KV2IiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEiLCJlbWFpbCI6ImVtcGxveWVlQGdtYWlsLmNvbSIsImlzX3ZlcmlmaWVkIjoxLCJzdGF0dXMiOiIxIiwicm9sZSI6ImVtcGxveWVlIn0.5Y5QFOiJ9hN3bo9rjSmon308wo2uijpQ4s9vc8_GphE"</li>
+																	</ul>
+																	<div class="code-block">
+																		<h6>Response Example</h6>
+<pre><code class="json">{
+	"success": true,
+	"vacancy": {
+		"id": 1,
+		"user_id": 3,
+		"title": "Front-end Developer for CryptoApp",
+		"position": "Front-end Developer",
+		"salary": 5000,
+		"stack": "Laravel, Vue, HTML, CSS, PHP",
+		"location": "Kherson, Ukraine",
+		"type": 1,
+		"description": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+		"created_at": "2019-11-01 20:39:28",
+		"updated_at": "2019-11-01 20:39:28",
+		"competencies": [
+			{
+				"id": 1,
+				"name": "Itaque enim quasi distinctio officiised.",
+				"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.efrr",
+				"created_at": "2019-11-01 20:22:54",
+				"updated_at": "2019-11-11 20:37:04",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"vacancy_id": 1,
+					"competency_id": 1
+				}
+			},
+			{
+				"id": 2,
+				"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+				"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+				"created_at": "2019-11-01 20:22:54",
+				"updated_at": "2019-11-01 20:22:54",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"vacancy_id": 1,
+					"competency_id": 2
+				}
+			},
+			{
+				"id": 17,
+				"name": "Minus repellendus et ducimus quos sed voluptatum.",
+				"description": "Et cumque nihil voluptate aspernatur sequi reprehenderit. Tempora consequatur non perspiciatis. Molestiae accusantium dolores neque ut autem quibusdam est. Eos voluptatum pariatur omnis consequuntur voluptate tempora cupiditate.",
+				"created_at": "2019-11-01 20:22:54",
+				"updated_at": "2019-11-01 20:22:54",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"vacancy_id": 1,
+					"competency_id": 17
+				}
+			}
+		]
+	},
+	"employee": {
+		"employee_email": "employee@gmail.com",
+		"employee_title": "HTML Coder",
+		"employee_name": "Maxim",
+		"employee_surname": "Pekulin",
+		"employee_location": "Kherson, Ukraine",
+		"employee_gender": 0,
+		"employee_year_of_birth": "1997",
+		"employee_salary": 50,
+		"employee_phone": "38099999999",
+		"employee_description": "Sunt eveniet aut qui distinctio eos facere. Doloremque perferendis nemo quidem expedita sit. Aliquam aut et aut incidunt.",
+		"employee_competencies": [
+			{
+				"id": 2,
+				"name": "Fugiat provident commodi itaque quod voluptates labore eius.",
+				"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.",
+				"created_at": "2019-11-01 20:22:54",
+				"updated_at": "2019-11-01 20:22:54",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"employee_profile_id": 2,
+					"competency_id": 2,
+					"is_verified": 1,
+					"file": "null"
+				}
+			},
+			{
+				"id": 1,
+				"name": "Itaque enim quasi distinctio officiised.",
+				"description": "Adipisci veritatis voluptatem aspernatur laboriosam. Vitae dolores cumque laboriosam similique iste minus. Qui aut maxime quia eum autem maiores.efrr",
+				"created_at": "2019-11-01 20:22:54",
+				"updated_at": "2019-11-11 20:37:04",
+				"approved": 1,
+				"author": "Admin of finder.work",
+				"pivot": {
+					"employee_profile_id": 2,
+					"competency_id": 1,
+					"is_verified": 1,
+					"file": "file.pdf"
+				}
+			}
+		]
+	}
+}
+</code></pre>
+																</div><!--//code-block-->
+															</div><!--//section-block-->
+														</section><!--//doc-section-->
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+	                        
+	                            <ul id="doc-menu" class="nav doc-menu flex-column sticky active-spy">
+																	<li>
+																		<a class="nav-link scrollto" href="#authentification-section">Authentification</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#register-user">Register User</a>
+																				<a class="nav-link scrollto" href="#verify-user">Verify User</a>
+																				<a class="nav-link scrollto" href="#login-user">Login User</a>
+																				<a class="nav-link scrollto" href="#logout-user">Logout User</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#password-section">Password Change</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#token-for-password-reset">Create token</a>
+																				<a class="nav-link scrollto" href="#find-password-reset-token">Find token</a>
+																				<a class="nav-link scrollto" href="#reset-password">Reset password</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employer-profile-section">Employer's Profile</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#create-employer-profile">Create profile</a>
+																				<a class="nav-link scrollto" href="#show-employer-profile">Show profile</a>
+																				<a class="nav-link scrollto" href="#update-employer-profile">Update profile</a>
+																				<a class="nav-link scrollto" href="#delete-employer-profile">Delete profile</a>
+																				<a class="nav-link scrollto" href="#show-employer-profile-avatar">Show profile avatar</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employee-profile-section">Employee's Profile</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#create-employee-profile">Create profile</a>
+																				<a class="nav-link scrollto" href="#show-employee-profile">Show profile</a>
+																				<a class="nav-link scrollto" href="#update-employee-profile">Update profile</a>
+																				<a class="nav-link scrollto" href="#delete-employee-profile">Delete profile</a>
+																				<a class="nav-link scrollto" href="#show-employee-profile-avatar">Show profile avatar</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#admin-competencies-section">Admin's Competencies</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#create-competency">Create competency</a>
+																				<a class="nav-link scrollto" href="#show-competency">Show competency</a>
+																				<a class="nav-link scrollto" href="#show-competencies">Show competencies</a>
+																				<a class="nav-link scrollto" href="#update-competency">Update competency</a>
+																				<a class="nav-link scrollto" href="#delete-competency">Delete competency</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#common-get-competencies-section">Common Get Competencies</a>
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employer-suggest-competency-section">Employer's Suggest Competency</a>
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#admin-competencies-application-section">Admin's Approve Employee Competencies</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#show-employee-competencies-by-type">Show competencies by status</a>
+																				<a class="nav-link scrollto" href="#show-employee-competencies-by-id">Show competencies by id</a>
+																				<a class="nav-link scrollto" href="#approve-employee-competency">Approve employee competency</a>
+																			</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#admin-proposed-competencies-section">Admin's Approve Proposed Competencies</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#show-proposed-competencies">Show proposed competencies</a>
+																				<a class="nav-link scrollto" href="#approve-proposed-competency">Approve proposed competency</a>
+																				<a class="nav-link scrollto" href="#revoke-proposed-competency">Revoke proposed competency</a>
+																			</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employer-vacancy-section">Employer's Vacancies</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#create-vacancy">Create vacancy</a>
+																				<a class="nav-link scrollto" href="#show-vacancy">Show vacancy</a>
+																				<a class="nav-link scrollto" href="#show-vacancies">Show vacancies</a>
+																				<a class="nav-link scrollto" href="#update-vacancy">Update vacancy</a>
+																				<a class="nav-link scrollto" href="#delete-vacancy">Delete vacancy</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employee-suggest-vacancy-section">Show Suggestions for Employee</a>
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employer-course-section">Employer's Courses</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#create-course">Create course</a>
+																				<a class="nav-link scrollto" href="#show-course">Show course</a>
+																				<a class="nav-link scrollto" href="#show-courses">Show courses</a>
+																				<a class="nav-link scrollto" href="#update-course">Update course</a>
+																				<a class="nav-link scrollto" href="#delete-course">Delete course</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employer-course-section">Employee's Courses</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#show-employee-courses">Get suggestions</a>
+																				<a class="nav-link scrollto" href="#show-employee-course">Show course info</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employee-course-application-section">Employee's Applications for Courses</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#create-course-application">Create course application</a>
+																				<a class="nav-link scrollto" href="#show-courses-application">Show courses applications</a>
+																				<a class="nav-link scrollto" href="#show-courses-application-by-type">Show applications by type</a>
+																				<a class="nav-link scrollto" href="#delete-course-application">Delete course application</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employee-course-application-section">Employer's Courses Applications</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#show-employee-courses-application">Show courses applications</a>
+																				<a class="nav-link scrollto" href="#show-employee-courses-application-by-type">Show applications by type</a>
+																				<a class="nav-link scrollto" href="#processed-employee-course-application">Processed course application </a>
+																			</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employee-competency-section">Employee's Competencies</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#create-employee-competency">Add competency</a>
+																				<a class="nav-link scrollto" href="#show-employee-competency">Show competency</a>
+																				<a class="nav-link scrollto" href="#show-employee-competencies">Show competencies</a>
+																				<a class="nav-link scrollto" href="#update-employee-competency">Update competency</a>
+																				<a class="nav-link scrollto" href="#delete-employee-competency">Delete competency</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employee-mutual-matching-section">Employee's Mutual Matching</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#send-request-for-vacancy">Send Request for Vacancy</a>
+																				<a class="nav-link scrollto" href="#get-sents-employee-requests">Get Sent Requests</a>
+																				<a class="nav-link scrollto" href="#get-received-employee-requests">Get Received Requests</a>
+																				<a class="nav-link scrollto" href="#accept-employer-request">Accept Request from Employer</a>
+																				<a class="nav-link scrollto" href="#get-employee-interviews">Get Vacancies for Interview</a>
+																				<a class="nav-link scrollto" href="#get-employee-interview">Get Vacancy for Interview</a>
+																		</nav><!--//nav-->
+																	</li>
+																	<li>
+																		<a class="nav-link scrollto" href="#employer-mutual-matching-section">Employer's Mutual Matching</a>
+																		<nav class="doc-sub-menu nav flex-column">
+																				<a class="nav-link scrollto" href="#send-request-for-employee">Send Request for Employee</a>
+																				<a class="nav-link scrollto" href="#get-sents-employer-requests">Get Sent Requests</a>
+																				<a class="nav-link scrollto" href="#get-received-employer-requests">Get Received Requests</a>
+																				<a class="nav-link scrollto" href="#accept-employee-request">Accept Request from Employee</a>
+																				<a class="nav-link scrollto" href="#get-employer-interviews">Get Employees for Interview</a>
+																				<a class="nav-link scrollto" href="#get-employer-interview">Get Employee for Interview</a>
+																		</nav><!--//nav-->
+																	</li>
+	                            </ul><!--//doc-menu-->
+	                        
+                        </div>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+  
+      
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Designed 2019</small>
+            
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>      
+    <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                             
+		<script type="text/javascript" src="assets/js/main.js"></script>
+		<script type="text/javascript" src="assets/js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+    
+</body>
+</html> 
+
